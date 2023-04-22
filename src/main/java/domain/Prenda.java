@@ -1,5 +1,6 @@
 package domain;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Prenda {
   private Tipo tipo;
@@ -13,19 +14,11 @@ public class Prenda {
     this.tela = tela;
     this.colorPrimario = colorPrimario;
     this.tipo = tipo;
-    if(tipo.getCategoria() == categoria) {
-      this.categoria = categoria;
-    } else {
-      throw new NoCoincideTipoConCategoriaException("El tipo de esta prenda no pertenece a la categoría " + categoria.name());
-    }
+    this.categoria = categoria;
   }
 
   private void chequearCamposIngresados(String tela, String colorPrimario, Tipo tipo, Categoria categoria) {
-    ArrayList campos = new ArrayList();
-    campos.add(tela);
-    campos.add(colorPrimario);
-    campos.add(tipo);
-    campos.add(categoria);
+    List campos = Arrays.asList(tela, colorPrimario, tipo, categoria);
     if (campos.stream().anyMatch(campo -> campo==null)){
       throw new CamposIngresadosIncompletosException();
     }

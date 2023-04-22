@@ -12,7 +12,6 @@ public class Tipo {
   public String getNombre() {
     return nombre;
   }
-
   public Categoria getCategoria() {
     return categoria;
   }
