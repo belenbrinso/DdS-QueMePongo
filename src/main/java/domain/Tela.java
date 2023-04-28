@@ -16,7 +16,7 @@ class TelaBuilder {
   public void conTrama(Trama trama) {
     this.trama = trama;
   }
-  public Tela crearTela() {
+  public Tela guardarTela() {
     return new Tela(trama);
   }
 }
