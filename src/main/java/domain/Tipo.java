@@ -1,6 +1,6 @@
 package domain;
 
-public class Tipo {
+public class Tipo{
   private String nombre;
   private Categoria categoria;
 

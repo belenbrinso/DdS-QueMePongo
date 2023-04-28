@@ -3,10 +3,10 @@ package domain;
 public class Prenda {
   private Tipo tipo;
   private Tela tela;
-  private String colorPrimario;
-  private String colorSecundario;
+  private Color colorPrimario;
+  private Color colorSecundario;
 
-  public Prenda(Tipo tipo, Tela tela, String colorPrimario, String colorSecundario) {
+  public Prenda(Tipo tipo, Tela tela, Color colorPrimario, Color colorSecundario) {
     this.tipo = tipo;
     this.tela = tela;
     this.colorPrimario = colorPrimario;

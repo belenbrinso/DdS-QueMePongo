@@ -3,37 +3,39 @@ package domain;
 public class PrendaBuilder {
   private Tipo tipo;
   private Tela tela;
-  private String colorPrimario;
-  private String colorSecundario = null;
-
-  private String msjPrimeroTipo = "Al crear una prenda, se debe especificar primero el tipo";
+  private Color colorPrimario;
+  private Color colorSecundario = null;
 
   public void conTipo(Tipo tipo) { this.tipo = tipo; }
 
   public void conTela(Tela tela) {
-    chequearCampoFueIngresado(tipo, msjPrimeroTipo);
+    chequearTipoFueIngresado();
     this.tela = tela;
   }
 
-  public void conColorPrimario(String colorPrimario) {
-    chequearCampoFueIngresado(tipo, msjPrimeroTipo);
+  public void conColorPrimario(Color colorPrimario) {
+    chequearTipoFueIngresado();
     this.colorPrimario = colorPrimario;
   }
 
-  public void conColorSecundario(String colorSecundario) {
-    chequearCampoFueIngresado(tipo, msjPrimeroTipo);
+  public void conColorSecundario(Color colorSecundario) {
+    chequearTipoFueIngresado();
     this.colorSecundario = colorSecundario;
   }
 
   public Prenda guardarPrenda() {
-    chequearCampoFueIngresado(tipo, msjCampoNoNulo("tipo"));
-    chequearCampoFueIngresado(tela, msjCampoNoNulo("tela"));
-    chequearCampoFueIngresado(colorPrimario, msjCampoNoNulo("colorPrimario"));
+    chequearConfiguracionCompleta();
     return new Prenda(tipo, tela, colorPrimario, colorSecundario);
   }
 
-  public String msjCampoNoNulo(String nombreCampo) {
-    return "El campo " + nombreCampo + " no puede ser nulo";
+  public void chequearTipoFueIngresado() {
+    chequearCampoFueIngresado(tipo, "Al crear una prenda, se debe especificar primero el tipo");
+  }
+
+  public void chequearConfiguracionCompleta() {
+    chequearCampoFueIngresado(tipo, "El campo tipo no puede ser nulo");
+    chequearCampoFueIngresado(tela, "El campo tela no puede ser nulo");
+    chequearCampoFueIngresado(colorPrimario, "El campo colorPrimario no puede ser nulo");
   }
 
   private void chequearCampoFueIngresado(Object campo, String mensaje) {
