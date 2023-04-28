@@ -3,11 +3,7 @@ package domain;
 import java.util.ArrayList;
 
 public class Atuendo {
-  private ArrayList<Prenda> prendas;
-
-  public Atuendo(ArrayList<Prenda> prendas) {
-    this.prendas = prendas;
-  }
+  protected ArrayList<Prenda> prendas = new ArrayList();
 
   public void agregarPrenda(Prenda prenda) {
     prendas.add(prenda);

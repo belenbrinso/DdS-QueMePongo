@@ -1,30 +1,17 @@
 package domain;
-import java.util.Arrays;
-import java.util.List;
 
 public class Prenda {
   private Tipo tipo;
-  private Categoria categoria;
-  private String tela;
+  private Tela tela;
   private String colorPrimario;
   private String colorSecundario;
 
-  public Prenda(String tela, String colorPrimario, Tipo tipo, Categoria categoria) {
-    chequearCamposIngresados(tela, colorPrimario, tipo, categoria);
+  public Prenda(Tipo tipo, Tela tela, String colorPrimario, String colorSecundario) {
+    this.tipo = tipo;
     this.tela = tela;
     this.colorPrimario = colorPrimario;
-    this.tipo = tipo;
-    this.categoria = categoria;
-  }
-
-  private void chequearCamposIngresados(String tela, String colorPrimario, Tipo tipo, Categoria categoria) {
-    List campos = Arrays.asList(tela, colorPrimario, tipo, categoria);
-    if (campos.stream().anyMatch(campo -> campo==null)){
-      throw new CamposIngresadosIncompletosException();
-    }
-  }
-
-  public void setColorSecundario(String colorSecundario){
     this.colorSecundario = colorSecundario;
   }
+
+  public Categoria getCategoria() {return tipo.getCategoria();}
 }
