@@ -1,4 +1,4 @@
-package domain;
+package domain.prenda;
 
 public class BorradorPrenda {
   private Tipo tipo;
@@ -29,7 +29,7 @@ public class BorradorPrenda {
 
   public Prenda guardarPrenda() {
     chequearConfiguracionCompleta();
-    return new Prenda(tipo, tela, colorPrimario, colorSecundario);
+    return new Prenda(tipo, tela, colorPrimario, colorSecundario, formalidad);
   }
 
   public void chequearConfiguracionCompleta() {

@@ -1,5 +1,5 @@
-package domain;
-import static domain.Trama.LISA;
+package domain.prenda;
+import static domain.prenda.Trama.LISA;
 
 public class Tela{
   private Trama trama;

@@ -1,3 +1,5 @@
+package domain.clima;
+
 import java.util.*;
 
 public final class AccuWeatherAPI {

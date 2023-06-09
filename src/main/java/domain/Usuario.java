@@ -1,16 +1,24 @@
 package domain;
 
-import java.util.ArrayList;
+import domain.prenda.Prenda;
 import java.util.List;
 
 public class Usuario {
-  protected List<Prenda> prendas = new ArrayList();
+  private int edad;
+  private Guardarropas guardarropas;
+
+  public Usuario(int edad, Guardarropas guardarropas){
+    this.edad = edad;
+    this.guardarropas = guardarropas;
+  }
 
   public void agregarPrenda(Prenda prenda) {
-    prendas.add(prenda);
+    guardarropas.agregarPrenda(prenda);
   }
 
-  public List<Prenda> getPrendas(){
-    return prendas;
+  public List<Atuendo> getAtuendos(){
+    return guardarropas.getAtuendos();
   }
+  public int getEdad() { return edad; }
+
 }
