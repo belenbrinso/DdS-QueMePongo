@@ -1,8 +1,10 @@
 package domain.clima;
 
-import domain.clima.Clima;
+import domain.Alerta;
+import java.util.List;
 
 public interface ServicioMeteorologico {
   Clima obtenerCondicionesClimaticas(String direccion);
+  List<Alerta> obtenerAlertas(String direccion);
 }
 

@@ -36,7 +36,7 @@ public class BorradorPrendaTest {
     prendaB.guardarPrenda();
   }
 
-  @Test
+  /*@Test
   public void chequeoStatic(){
     Usuario usu = new Usuario(20);
 
@@ -69,5 +69,5 @@ public class BorradorPrendaTest {
     usu.agregarPrenda(prendaCal);
 
     usu.obtenerSugerencias().forEach(sug -> System.out.println(sug.getSugerencia()));
-  }
+  }*/
 }

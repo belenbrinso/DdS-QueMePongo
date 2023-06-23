@@ -2,6 +2,7 @@ package domain.clima;
 
 import static domain.clima.Humedad.*;
 
+import domain.Alerta;
 import domain.clima.AccuWeatherAPI;
 import domain.clima.Clima;
 import domain.clima.Humedad;
@@ -10,6 +11,7 @@ import domain.clima.ServicioMeteorologico;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ServicioMeteorologicoAccuWeather implements ServicioMeteorologico {
@@ -31,6 +33,12 @@ public class ServicioMeteorologicoAccuWeather implements ServicioMeteorologico {
           new RespuestaMeteorologica(consultarApi(direccion), expiracion));
     }
     return ultimasRespuestas.get(direccion).getClima();
+  }
+
+  @Override
+  public List<Alerta> obtenerAlertas(String direccion) {
+    Map<String, Object> alertas = api.getAlertas("Buenos Aires");
+    return (List<Alerta>) alertas.get("CurrentAlerts");
   }
 
   private Clima consultarApi(String direccion) {
